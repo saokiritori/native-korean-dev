@@ -1,62 +1,29 @@
 # native-korean-dev
 
-Claude Code 가 한국어로 답할 때 자연스럽고 정확한 한국어를 쓰게 하는 output style 입니다. 별도의 추가 구성 없이 파일 하나로 적용할 수 있습니다.
+Claude Code 가 한국어로 답할 때 자연스럽고 정확한 한국어를 쓰게 하는 output style 입니다. 파일 하나를 복사하면 적용됩니다.
 
-A Claude Code output style for natural, native-sounding Korean and precise technical explanations. One file, no folders, no framework. Keeps Claude Code's built-in coding instructions intact.
+A Claude Code output style for natural, native-sounding Korean and precise technical explanations. One file. Keeps Claude Code's built-in coding instructions intact.
 
 ## 개발 배경
 
-Claude Code 는 한국어로 설명할 때 영어 문장 구조를 그대로 옮기고, 개발 현장에서 통용되는 용어를 모호한 일상어로 대체하며, 수학 용어를 비유로 끌어 쓰는 경향이 있습니다. 예를 들면 다음과 같은 문장입니다.
+Claude Code 는 한국어로 설명할 때 영어 문장 구조를 그대로 옮기고, 개발 현장에서 통용되는 용어를 모호한 일상어로 대체하며, 수학 용어를 비유로 끌어 쓰는 경향이 있습니다.
 
 > 여기서 로직이 **갈립니다**.
 > 이 변경으로 **회귀**가 발생할 수 있습니다.
-> 판정 값을 카드 단계까지 **들고 있을** 필요가 없습니다.
 > 두 판정은 서로 **직교**합니다.
 
-'갈린다'는 분기인지 분리인지 불분명합니다. '회귀'는 통계 용어라서, 기존 기능이 다시 고장 나는 현상(regression)을 뜻하는지 한 번 더 해석해야 합니다. '직교'는 수학 밖에서는 뜻이 정해져 있지 않습니다. 작성자도 이런 문장을 읽으며 자신의 독해력을 의심했고, AI 와 일하려면 AI 말투를 해독하는 능력을 따로 길러야 하는지 고민했습니다. 원인은 독자가 아니라 모델의 어휘 선택에 있으므로, 이 output style 은 그 어휘 선택을 바로잡습니다. 적용 전후 예시는 다음과 같습니다.
+'갈린다'는 분기인지 분리인지 불분명합니다. '회귀'는 통계 용어라서, 기존 기능이 다시 고장 나는 현상(regression)을 뜻하는지 한 번 더 해석해야 합니다. '직교'는 수학 밖에서는 뜻이 정해져 있지 않습니다. 작성자도 이런 문장을 읽으며 자신의 독해력을 의심했고, AI 와 일하려면 AI 말투를 해독하는 능력을 따로 길러야 하는지 고민했습니다. 원인은 독자가 아니라 모델의 어휘 선택에 있으므로, 이 output style 은 그 어휘 선택을 바로잡습니다.
 
 | 적용 전 | 적용 후 |
 |---|---|
 | 여기서 로직이 갈립니다 | 조건에 따라 처리 경로가 분기됩니다 |
 | 이 변경으로 회귀가 발생할 수 있습니다 | 이 변경으로 기존에 동작하던 기능이 다시 고장 날 수 있습니다 |
-| 쿼리를 태웁니다 | 쿼리를 실행합니다 |
 | 이 설정은 사용자에 의해 변경될 수 있습니다 | 사용자가 이 설정을 변경할 수 있습니다 |
 | 좋은 질문입니다! 지금부터 차근차근 설명해 드리겠습니다 | (도입 문장 없이 바로 답합니다) |
-| 더 자세히 알아볼까요? 다른 예시도 보여드릴까요? | (답변이 끝나면 후속 질문 없이 종료합니다) |
 
-## 단일 파일 구성
+기존에 공개된 스킬·프롬프트 저장소를 써 보니 폴더와 파일이 많아서, 어느 파일을 어디에 넣어야 하는지부터 파악해야 했고 그 과정이 불편했습니다. 그래서 직접 만들어 올렸습니다. 이 저장소에는 `styles/native-korean-dev.md` 파일 하나만 있고, 앞으로도 파일을 늘리거나 복잡한 규칙을 추가하지 않고 이 한 파일만 간결하게 유지할 계획입니다. 필요 없는 조항은 파일을 열어 지우면 됩니다.
 
-이 저장소에는 `styles/native-korean-dev.md` 파일 하나만 있습니다. 기존에 공개된 스킬·프롬프트 저장소를 써 보니 폴더와 파일이 많아서, 어느 파일을 어디에 넣어야 하는지부터 파악해야 했고 그 과정이 불편했습니다. 그래서 직접 만들어 올렸습니다. 여기에는 필요한 파일만 두었으므로 가져다 넣으면 바로 동작하고, 앞으로도 파일을 늘리거나 복잡한 규칙을 추가하지 않고 이 한 파일만 간결하게 유지할 계획입니다.
-
-- **설치**: 파일 복사로 끝납니다. 폴더 구조를 맞추거나 다른 파일을 함께 가져올 필요가 없습니다.
-- **예시**: 조항마다 부자연스러운 표현과 자연스러운 표현이 짝으로 붙어 있어서, 규칙의 뜻을 예시로 바로 확인할 수 있습니다.
-- **수정**: 필요 없는 조항은 삭제하고, 자주 나타나는 표현은 예시에 추가하면 됩니다. 다른 파일을 함께 고칠 필요가 없습니다.
-- **코딩 지침 유지**: frontmatter 의 `keep-coding-instructions: true` 가 Claude Code 기본 코딩 지침을 그대로 남기고, 그 뒤에 이 파일이 붙습니다.
-
-## 구성 내용
-
-맨 앞에 응답 판단 우선순위가 있고, 그 뒤에 지시문이 이어집니다.
-
-| 지시문 | 다루는 것 |
-|---|---|
-| Korean Native Communication Instruction | 발화 의도 해석, 한국어식 생략, 번역투 제거, 말투 선택, AI 식 친절 표현 금지, 문장 호흡, 정보 밀도, 무조건 동의 금지, 문서 종류별 문체, 맞춤법 검수, 응답 구조 고정 금지 |
-| Technical Communication Instruction | 기술 용어를 일상어로 치환하지 않기, 비유보다 동작 설명, 용어 번역 금지, 지식 수준 존중, 실행 흐름·조건·예외 명시, 코드와 설명 일치 |
-| Advanced Korean & Technical Reasoning Instruction | 핵심 먼저 답하기, 헷갈리는 지점 찾기, 비슷한 개념 구분, 코드 실행 추적, 증상·원인·해결책 구분, 설계 선택의 조건, 기존 코드 존중, 보장 범위, 사실과 추정 구분, 검증 가능한 예시, 맥락 유지, 과시 금지, 설명과 평가 구분, 출력 형식 우선, 끝맺음 질문 금지, 서식 남용 금지, 오류 수정 방식 |
-| Korean Documentation Style Instruction | 영어식 의문형 제목 금지, 명사형 항목명, 제목과 본문의 문체 구분, 한국어 문서 관습 표현, 광고 문구 금지, 질문형 구성 금지, 제목 검수 |
-| Quantity Expression & Natural Korean Instruction | 핵심이 아닌 개수 생략, 고유어 수사 남용 금지, 영어식 수량 도입문 금지, 정확한 수량이 필요한 자리 유지, 작업 보고에서 개수보다 변경 내용 |
-| Korean Lexical Precision & Information Structure | 설명형 명사구 대신 정확한 어휘, 첫 문장에 핵심 정보, 독자 반응 서술 금지, 짧은 문장 반복 금지, 극적 전개 금지, 감정적 비유 금지, 문어체 기본 |
-
-지시문이 서로 충돌하면 다음 우선순위를 따릅니다.
-
-1. 정확한 사실과 기술 동작
-2. 사용자의 실제 질문과 요구사항
-3. 대화 맥락과 기술 수준
-4. 명확한 인과관계와 실행 흐름
-5. 자연스러운 한국어와 간결함
-
-자연스러운 한국어를 마지막에 둔 이유는, 틀린 내용을 자연스럽게 표현하는 것이 가장 큰 문제이기 때문입니다.
-
-## 설치 방법
+## 사용 방법
 
 ```sh
 mkdir -p ~/.claude/output-styles
@@ -64,7 +31,7 @@ curl -fsSL https://raw.githubusercontent.com/saokiritori/native-korean-dev/main/
   -o ~/.claude/output-styles/native-korean-dev.md
 ```
 
-그다음 `~/.claude/settings.json` 에 아래 설정을 넣습니다. Claude Code 안에서 `/config` 를 열어 Output style 항목에서 `native-korean-dev` 를 선택해도 됩니다.
+`~/.claude/settings.json` 에 아래 설정을 넣습니다. Claude Code 안에서 `/config` 를 열어 Output style 항목에서 `native-korean-dev` 를 선택해도 됩니다.
 
 ```json
 {
@@ -72,30 +39,8 @@ curl -fsSL https://raw.githubusercontent.com/saokiritori/native-korean-dev/main/
 }
 ```
 
-**새 세션을 열어야 적용됩니다.** output style 은 세션이 시작할 때 시스템 프롬프트에 들어가므로, 이미 열려 있는 세션은 이전 지침을 계속 따릅니다.
-
-특정 프로젝트에서만 쓰려면 그 프로젝트의 `.claude/settings.local.json` 에 같은 키를 넣습니다. 프로젝트 설정이 사용자 설정보다 우선합니다.
-
-## 수정 방법
-
-파일을 열어 조항을 고치면 됩니다. 조항마다 부자연스러운 표현과 자연스러운 표현의 짝을 예시로 둡니다. 예시가 없으면 모델이 규칙의 문구만 기계적으로 대조하고, 예시가 있으면 같은 유형의 표현을 함께 수정합니다.
-
-frontmatter 는 다음과 같습니다.
-
-```yaml
-name: native-korean-dev          # 파일명과 같아야 하고, settings.json 의 outputStyle 값이 됩니다
-description: ...                 # /config 목록에 보이는 한 줄 설명입니다
-keep-coding-instructions: true   # Claude Code 의 코딩 지침을 유지합니다. 빼면 코딩 지침이 사라집니다
-```
-
-이름을 바꾸려면 파일명과 `name` 을 같이 바꾸고 `settings.json` 의 값도 맞춥니다.
-
-## 제한 사항
-
-- output style 은 Claude Code 의 기능입니다. 다른 도구에서 쓰려면 frontmatter 를 제외한 본문을 시스템 프롬프트에 직접 넣어야 합니다.
-- 본문이 약 56KB 라서 매 세션의 컨텍스트를 그만큼 차지합니다. 필요 없는 지시문은 삭제해서 줄일 수 있습니다.
-- 지시문은 한국어 출력에 관한 것이며, 코드·커밋 메시지·로그 문자열 같은 비한국어 출력은 프로젝트의 기존 관례를 따릅니다.
+새 세션을 열어야 적용됩니다. 특정 프로젝트에서만 쓰려면 그 프로젝트의 `.claude/settings.local.json` 에 같은 키를 넣습니다.
 
 ## 라이선스
 
-MIT 입니다. 복사·수정·재배포가 가능합니다.
+MIT
